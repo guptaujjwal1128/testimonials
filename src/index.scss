@@ -1,0 +1,63 @@
+@use "reset";
+
+/* Breakpoints */
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
+/* Colors */
+// ### Primary
+$color-purple-50: hsl(260, 100%, 95%);
+$color-purple-300: hsl(264, 82%, 80%);
+$color-purple-500: hsl(263, 55%, 52%);
+
+// ### Neutral
+$color-white: hsl(0, 0%, 100%);
+$color-grey-100: hsl(214, 17%, 92%);
+$color-grey-200: hsl(0, 0%, 81%);
+$color-grey-400: hsl(224, 10%, 45%);
+$color-grey-500: hsl(217, 19%, 35%);
+$color-dark-blue: hsl(219, 29%, 14%);
+$color-black: hsl(0, 0%, 7%);
+
+/* Fonts */
+$font-size-sm: 0.75rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.5rem;
+
+$font-family-base: "Barlow Semi Condensed", sans-serif;
+
+$font-weight-normal: 500;
+$font-weight-bold: 600;
+
+/* Spacing */
+$spacing-lg-150: 1.5rem;
+$spacing-md-100: 1rem;
+$spacing-sm-50: 0.5rem;
+
+/* Custom Fonts */
+@font-face {
+  font-family: "Barlow Semi Condensed";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 500 600; /* Defines variable range */
+  font-display: swap;
+}
+
+/* Mixins for screen sizes */
+@mixin mobile() {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: #{($breakpoint-desktop + 1)}) {
+    @content;
+  }
+}
+
+html,
+body {
+  font-family: $font-family-base;
+  font-size: 13px;
+}
