@@ -1,6 +1,6 @@
 # Frontend Mentor - Testimonials solution
 
-This is a solution to the [Testimonials challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Testimonials challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -24,8 +24,7 @@ This is a solution to the [Testimonials challenge on Frontend Mentor](https://ww
 
 ### Screenshot
 
-![](./screenshot_1.png)
-![](./screenshot_2.png)
+![](./screenshot.png)
 
 ### Links
 
