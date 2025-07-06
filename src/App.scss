@@ -1,0 +1,131 @@
+@use "./index.scss" as *;
+
+blockquote p::before {
+  content: open-quote;
+  margin-right: 0.25em; /* adds space after the opening quote */
+}
+
+blockquote p::after {
+  content: close-quote;
+  margin-left: 0.25em; /* adds space before the closing quote */
+}
+
+.container {
+  display: grid;
+  max-width: 100rem;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(4, minmax(10rem, 1fr));
+  gap: $spacing-lg-200;
+  padding: $spacing-lg-200;
+  margin-top: auto;
+  margin-bottom: auto;
+  .card {
+    border-radius: $border-radius;
+    padding: $spacing-lg-200;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg-200;
+    box-shadow: $box-shadow;
+    .avatar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: $spacing-md-100;
+      &-img {
+        border-radius: 50%;
+        border: 2px solid;
+        width: 2.2rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+      &-details {
+        display: flex;
+        flex-direction: column;
+        &-name {
+          @include typography-avatar-name();
+        }
+        &-role {
+          @include typography-avatar-role();
+        }
+      }
+    }
+    .heading {
+      @include typography-heading();
+    }
+    .desc {
+      @include typography-quote();
+    }
+  }
+  .card:first-child {
+    @include card-purple();
+    grid-column: 1/3;
+  }
+  .card:nth-child(2) {
+    @include card-grey();
+  }
+  .card:nth-child(3) {
+    @include card-white();
+  }
+  .card:nth-child(4) {
+    @include card-dark-grey();
+    grid-column: 2/4;
+  }
+  .card:last-child {
+    @include card-white();
+    grid-row: 1/3;
+    grid-column-start: 4;
+  }
+}
+
+@include tablet {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    .card {
+      grid-row: auto;
+      grid-column: auto;
+    }
+    .card:first-child {
+      grid-column: auto;
+    }
+    .card:nth-child(4) {
+      grid-column: auto;
+    }
+    .card:last-child {
+      grid-column: 1/3;
+      grid-row: auto;
+    }
+  }
+}
+
+@include mobile {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    .card {
+      grid-row: auto;
+      grid-column: auto;
+    }
+    .card:first-child {
+      grid-column: auto;
+    }
+    .card:nth-child(4) {
+      grid-column: auto;
+    }
+    .card:last-child {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  }
+}
+
+footer {
+  justify-self: flex-end;
+  .attribution {
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}

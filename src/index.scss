@@ -1,7 +1,8 @@
 @use "reset";
 
 /* Breakpoints */
-$breakpoint-mobile: 375px;
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 960px;
 $breakpoint-desktop: 1440px;
 
 /* Colors */
@@ -30,17 +31,28 @@ $font-weight-normal: 500;
 $font-weight-bold: 600;
 
 /* Spacing */
-$spacing-lg-150: 1.5rem;
+$spacing-lg-200: 2rem;
 $spacing-md-100: 1rem;
 $spacing-sm-50: 0.5rem;
 
-/* Custom Fonts */
-@font-face {
-  font-family: "Barlow Semi Condensed";
-  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
-    format("truetype");
-  font-weight: 500 600; /* Defines variable range */
-  font-display: swap;
+/* Border */
+$border-radius: 20px;
+$box-shadow: 20px 20px 30px $color-grey-200;
+
+html,
+body {
+  font-family: $font-family-base;
+  font-size: 13px;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: $spacing-lg-200;
+  background-color: $color-grey-100;
 }
 
 /* Mixins for screen sizes */
@@ -50,14 +62,85 @@ $spacing-sm-50: 0.5rem;
   }
 }
 
-@mixin desktop() {
-  @media (min-width: #{($breakpoint-desktop + 1)}) {
+@mixin tablet() {
+  @media (min-width: #{($breakpoint-mobile + 1)}) and (max-width: $breakpoint-tablet) {
     @content;
   }
 }
 
-html,
-body {
-  font-family: $font-family-base;
-  font-size: 13px;
+@mixin desktop() {
+  @media (min-width: #{($breakpoint-tablet) + 1}) {
+    @content;
+  }
+}
+
+/* Mixins for typography */
+@mixin typography-avatar-name() {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+}
+
+@mixin typography-avatar-role() {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+}
+
+@mixin typography-heading() {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+@mixin typography-quote() {
+  font-size: $font-size-md;
+  font-weight: $font-weight-normal;
+}
+
+/* Mixins for card variants */
+@mixin card-purple() {
+  background-color: $color-purple-500;
+  background-image: url("./assets/images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: 85% 0;
+  background-size: clamp(7rem, 20%, 10rem) auto;
+  color: $color-grey-100;
+  border-color: $color-purple-300;
+  h3 {
+    color: $color-white;
+  }
+  img {
+    border-color: $color-purple-300;
+  }
+}
+
+@mixin card-grey() {
+  background-color: $color-grey-500;
+  color: $color-grey-100;
+  h3 {
+    color: $color-white;
+  }
+  img {
+    border-color: $color-grey-500;
+  }
+}
+
+@mixin card-dark-grey() {
+  background-color: $color-dark-blue;
+  color: $color-grey-100;
+  h3 {
+    color: $color-grey-200;
+  }
+  img {
+    border-color: $color-purple-500;
+  }
+}
+
+@mixin card-white() {
+  background-color: $color-white;
+  color: $color-grey-400;
+  h3 {
+    color: $color-dark-blue;
+  }
+  img {
+    border-color: $color-white;
+  }
 }
