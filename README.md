@@ -76,7 +76,7 @@ tsconfig*.json    # TypeScript configs
 ### Built with
 
 - Semantic HTML5 markup
-- Flexbox
+- Gridbox
 - Responsive Design
 - Accesibility
 - [Vite](https://vite.dev/) - Module Bundler
